@@ -10,7 +10,7 @@ import java.sql.SQLException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class UserTest {
+class UserTestAsUnit {
     @Nested
     class ValidityTests{
         @Nested

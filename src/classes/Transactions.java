@@ -36,6 +36,10 @@ public class Transactions {
 
     }
     public static   boolean Transfer(User first,User second,int amount) throws SQLException {
+        if (amount==0)
+            return false;
+        if (amount<0)
+            return false;
         if (isAvailableBalance(first,amount)) {
             second.setBalance(second.getBalance() + amount);
             first.setBalance(first.getBalance() - amount);
@@ -48,6 +52,10 @@ public class Transactions {
         else return false;
     }
     public static   boolean TransferBank(User first,int amount) throws SQLException {
+        if (amount==0)
+            return false;
+        if (amount<0)
+            return false;
         if (isAvailableBalance(first,amount)) {
             first.setBalance(first.getBalance() - amount);
             Connection c = DriverManager.getConnection("jdbc:ucanaccess://Gand_bank_DB1.accdb") ;
@@ -58,6 +66,10 @@ public class Transactions {
         else return false;
     }
     public static   boolean TransferBill(User first,int amount,String billType) throws SQLException {
+        if (amount==0)
+            return false;
+        if (amount<0)
+            return false;
         if (isAvailableBalance(first,amount)) {
             first.setBalance(first.getBalance() -amount);
             Connection c = DriverManager.getConnection("jdbc:ucanaccess://Gand_bank_DB1.accdb") ;
