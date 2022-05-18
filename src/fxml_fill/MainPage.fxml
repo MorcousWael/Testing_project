@@ -12,6 +12,6 @@
       <Button fx:id="TransferLabel" layoutX="325.0" layoutY="195.0" mnemonicParsing="false" onAction="#switchToTransfer" prefHeight="55.0" prefWidth="79.0" text="Transfer" />
       <Button fx:id="StatementButton" layoutX="199.0" layoutY="312.0" mnemonicParsing="false" onAction="#switchToStatement" prefHeight="55.0" prefWidth="79.0" text="Statement" />
       <Button fx:id="BuyItemsButton" layoutX="325.0" layoutY="312.0" mnemonicParsing="false" onAction="#switchToBuyItems" prefHeight="55.0" prefWidth="79.0" text="Buy Items" />
-      <Label fx:id="HelloLabel" layoutX="52.0" layoutY="61.0" text="Hello, Philo" />
+      <Label fx:id="HelloLabel" layoutX="52.0" layoutY="61.0" />
    </children>
 </AnchorPane>

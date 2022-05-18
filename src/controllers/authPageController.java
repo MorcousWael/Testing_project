@@ -2,27 +2,30 @@ package controllers;
 
 import classes.User;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
 
+
+
 public class authPageController {
     public Button authLogin;
     public Button authSignup;
+    @FXML
     public TextField authUser;
     public PasswordField authPass;
     private Stage stage;
     private Scene scene;
     private Parent root;
+
+    String hello;
 
 
     public void switchSignup(ActionEvent e) throws IOException{
@@ -40,10 +43,12 @@ public class authPageController {
             {
             root = FXMLLoader.load(getClass().getResource("../fxml_fill/MainPage.fxml"));
             HelloController.x=x;
+
             stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
-            stage.show();}
+            stage.show();
+            }
          else{throw new Exception();
             }
     }

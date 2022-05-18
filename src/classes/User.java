@@ -34,6 +34,11 @@ public class User {
 
         return name;
     }
+
+    public String getCardNumber() {
+        return cardNumber;
+    }
+
     public boolean isValidPassword(String s) {
         boolean validPassword = true;
         if (s.length()>=PASSWORD_LENGTH)

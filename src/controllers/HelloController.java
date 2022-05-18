@@ -32,6 +32,7 @@ import java.util.ResourceBundle;
 public class HelloController implements Initializable {
 
 
+    public Label HelloLabel;
     @FXML
     private TableView<Transactions> TransactionTable;
     @FXML
