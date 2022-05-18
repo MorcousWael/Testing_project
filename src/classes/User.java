@@ -24,9 +24,11 @@ public class User {
     public int getBalance() {
         return balance;
     }
-    public void setBalance(int balance) throws SQLException {
+    public boolean setBalance(int balance) throws SQLException {
+        if (balance<0) return false;
         this.balance = balance;
         UpdateUser();
+        return true;
     }
     public String getName() {
 
@@ -34,7 +36,7 @@ public class User {
     }
     public boolean isValidPassword(String s) {
         boolean validPassword = true;
-        if (s.length()>PASSWORD_LENGTH)
+        if (s.length()>=PASSWORD_LENGTH)
         {
             for (int i =0 ; i< s.length() ;i++)
             {
@@ -90,7 +92,7 @@ public class User {
         return true;
 
     }
-    public void UpdateUser() throws SQLException {
+    private void UpdateUser() throws SQLException {
         Connection c = DriverManager.getConnection("jdbc:ucanaccess://Gand_bank_DB1.accdb") ;
         Statement stp = c.createStatement();
         stp.executeUpdate("UPDATE Users SET Balance = "+this.balance+" WHERE Users.CardNumber='"+cardNumber+"'");
