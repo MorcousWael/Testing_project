@@ -27,6 +27,10 @@ public class Transactions {
             return true;
         return false;
     }
+
+    public Transactions() {
+    }
+
     public Transactions(User first, User second, int amount) {
         this.first = first;
         firstName=first.getName();
@@ -79,12 +83,12 @@ public class Transactions {
         }
         else return false;
     }
-    public List<Transactions> ShowRecords() throws SQLException{
+    public  List<Transactions> ShowRecords() throws SQLException{
         Connection c = DriverManager.getConnection("jdbc:ucanaccess://Gand_bank_DB1.accdb") ;
         Statement stp = c.createStatement();
         ResultSet rs=  stp.executeQuery("SELECT Transactions.[TransactionNum], Transactions.[UserName], Transactions.[Typee], Transactions.[User2], Transactions.[amount]\n" +
                                             "FROM Transactions\n" +
-                                            "WHERE (((Transactions.[UserName])='"+this.first.getName()+"'));");
+                                            "WHERE (((Transactions.[UserName])='"+this.firstName+"'));");
         List<Transactions> x=new ArrayList<Transactions>();
         while(rs.next()){
             x.add(new Transactions(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getInt(5)));
@@ -97,7 +101,6 @@ public class Transactions {
     public void setFirst(User first) {
         this.first = first;
     }
-
     public User getSecond() {
         return second;
     }

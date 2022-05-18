@@ -5,13 +5,15 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.HelloController">
    <children>
-      <TableView layoutX="103.0" layoutY="63.0" prefHeight="222.0" prefWidth="357.0">
+      <TableView fx:id="TransactionTable" layoutX="108.0" layoutY="63.0" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <columns>
-          <TableColumn prefWidth="121.0" text="Type" />
-          <TableColumn prefWidth="82.0" text="C2" />
+          <TableColumn fx:id="Tnumm" prefWidth="121.0" text="Transaction Number" />
+          <TableColumn fx:id="User1Col" prefWidth="82.0" text="Name" />
+            <TableColumn fx:id="Type" prefWidth="114.0" text="Type" />
+            <TableColumn fx:id="User2Col" prefWidth="102.0" text="Name2" />
+            <TableColumn fx:id="Amount" prefWidth="180.0" text="Amount" />
         </columns>
       </TableView>
       <Button layoutX="503.0" layoutY="341.0" mnemonicParsing="false" onAction="#switchToMainPage" text="Home" />

@@ -1,30 +1,69 @@
 package controllers;
 
 import classes.Items;
+
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 import classes.Transactions;
 import classes.User;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ResourceBundle;
 
-public class HelloController {
+public class HelloController implements Initializable {
+
+
+    @FXML
+    private TableView<Transactions> TransactionTable;
+    @FXML
+    private TableColumn<Transactions, Integer> Tnumm;
+
+    @FXML
+    private TableColumn<Transactions, String> User1Col;
+
+    @FXML
+    private TableColumn<Transactions, String> Type;
+
+    @FXML
+    private TableColumn<Transactions, String> User2Col;
+    @FXML
+    private TableColumn<Transactions, Integer> Amount;
+
 
     private Stage stage;
     private Scene scene;
     private Parent root;
     public static   User x;
-
+    private List<Transactions> table=new ArrayList<>() ;
+    //copy
+    public void TransactionTableView(ObservableList<Transactions> table) {
+        TransactionTable.getItems().clear();
+        Tnumm.setCellValueFactory(new PropertyValueFactory<Transactions,Integer>("Tnum"));
+        User1Col.setCellValueFactory(new PropertyValueFactory<Transactions,String>("firstName"));
+        Type.setCellValueFactory(new PropertyValueFactory<Transactions,String>("Type"));
+        User2Col.setCellValueFactory(new PropertyValueFactory<Transactions,String>("secondName"));
+        Amount.setCellValueFactory(new PropertyValueFactory<Transactions,Integer>("amount"));
+        TransactionTable.setItems(table);
+    }
     public void switchToBuyItems(javafx.event.ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("../fxml_fill/BuyItemsPage.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -46,12 +85,23 @@ public class HelloController {
         stage.setScene(scene);
         stage.show();
     }
+    public void initialize (URL url, ResourceBundle resourceBundle)  {
+        try {
+            Transactions Y=new Transactions();
+            Y.setFirstName(x.getName());
+            TransactionTableView(FXCollections.observableList(Y.ShowRecords()));
+        }
+        catch (Exception e) {
+            System.out.println("not working");
+        }
+    }
     public void switchToStatement(javafx.event.ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("../fxml_fill/StatementPage.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+
     }
     public void switchToMainPage(javafx.event.ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("../fxml_fill/MainPage.fxml"));
