@@ -12,87 +12,213 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class UserTest {
     @Nested
-    class login{
-        User x;
+    class ValidityTests{
+        @Nested
+    class EnterCardUserTest {
+
+        User UserObj ;
         @BeforeEach
         public void init(){
-            x=new User();
+            UserObj= new User();
         }
+
         @Nested
-        class Successfully{
+        class cardNunPass{
             @Test
-            public void test1(){
-                try {
-                    assertEquals(x.login("marc","marcx1233"),true);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-            @Test
-            public void test2(){
-                try {
-                    assertEquals(x.login("marc2","asdasdasdasd"),true);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-            @Test
-            public void test3(){
-                try {
-                    assertEquals(x.login("normaluser","normaluser2"),true);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-            @Test
-            public void test4(){
-                try {
-                    assertEquals(x.login("philo","philo1234"),true);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+            public void correctNum() throws Exception {
+                assertEquals(UserObj.EnterCardNumber("49461112131415"), true);
+                assertEquals(UserObj.EnterCardNumber("49462122232426"), true);
+                assertEquals(UserObj.EnterCardNumber("49463132333437"), true);
+                assertEquals(UserObj.EnterCardNumber("49464142434445"), true);
+                assertEquals(UserObj.EnterCardNumber("51585152535455"), true);
+                assertEquals(UserObj.EnterCardNumber("51586162636465"), true);
+                assertEquals(UserObj.EnterCardNumber("51587172737475"), true);
             }
         }
         @Nested
-        class failed{
+        class cardNunFail{
             @Test
-            public void noUsername(){
-                try {
-                    assertEquals(x.login("","marcx1233"),false);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-            @Test
-            public void noPassword(){
-                try {
-                    assertEquals(x.login("marc2",""),false);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-            @Test
-            public void incorrectUsername(){
-                try {
-                    assertEquals(x.login("nrmaluser","normaluser2"),false);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-            @Test
-            public void incorrectPassword(){
-                try {
-                    assertEquals(x.login("philo","phil1234"),false);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+            public void wrongNum() throws Exception {
+                assertEquals(UserObj.EnterCardNumber("4946111213141"), false);
+                assertEquals(UserObj.EnterCardNumber("79462122232426"), false);
+                assertEquals(UserObj.EnterCardNumber("89468132333437"), false);
+                assertEquals(UserObj.EnterCardNumber("22464142434445"), false);
+                assertEquals(UserObj.EnterCardNumber("51585652535455"), false);
+                assertEquals(UserObj.EnterCardNumber("51586162636257"), false);
+                assertEquals(UserObj.EnterCardNumber("51127172737475"), false);
             }
         }
+
         @AfterEach
         public void clean(){
-            x=null;
+            UserObj= null;
         }
     }
+        @Nested
+        class UserPasswordTest_IsValid {
+
+            User UserObj ;
+
+            @BeforeEach
+            public void init(){
+                UserObj= new User();
+            }
+            @Nested
+            class passCasses {
+
+                @Test
+                public void normal() {
+                    assertEquals(UserObj.isValidPassword("1234567h"), true);
+                }
+                @Test
+                public void normalAndLetters() {
+                    assertEquals(UserObj.isValidPassword("12345hfgk"), true);
+                }
+                @Test
+                public void capsAndNums() {
+                    assertEquals(UserObj.isValidPassword("AJK4343K2"), true);
+                }
+            }
+            @Nested
+            class failCasses {
+
+                @Test
+                public void empty() {
+                    assertEquals(UserObj.isValidPassword(""), false);
+                }
+                @Test
+                public void numsOnly() {
+                    assertEquals(UserObj.isValidPassword("12345678"), true);
+                }
+                @Test
+                public void numsOnlyLssThan8() {
+                    assertEquals(UserObj.isValidPassword("1234567"), false);
+                }
+
+                @Test
+                public void lessThan8() {
+                    assertEquals(UserObj.isValidPassword("223344a"), false);
+                }
+
+                @Test
+                public void negative() {
+                    assertEquals(UserObj.isValidPassword("-12345678k"), false);
+                }
+                @Test
+                public void speacialCharcters1() {
+                    assertEquals(UserObj.isValidPassword("@4567ggg"), false);
+                }
+                @Test
+                public void speacialCharcters2() {
+                    assertEquals(UserObj.isValidPassword("39567as#"), false);
+                }
+                @Test
+                public void AllCapsNoNum() {
+                    assertEquals(UserObj.isValidPassword("@ABBCDEFG"), false);
+                }
+                @Test
+                public void AllCapsOneNum() {
+                    assertEquals(UserObj.isValidPassword("@ABCDEFG2"), false);
+
+                }
+
+
+
+
+
+
+
+
+            }
+            @AfterEach
+            public void clean(){
+                UserObj= null;
+            }
+
+        }
+        @Nested
+        class login{
+            User x;
+            @BeforeEach
+            public void init(){
+                x=new User();
+            }
+            @Nested
+            class Successfully{
+                @Test
+                public void test1(){
+                    try {
+                        assertEquals(x.login("marc","marcx1233"),true);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+                @Test
+                public void test2(){
+                    try {
+                        assertEquals(x.login("marc2","asdasdasdasd"),true);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+                @Test
+                public void test3(){
+                    try {
+                        assertEquals(x.login("normaluser","normaluser2"),true);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+                @Test
+                public void test4(){
+                    try {
+                        assertEquals(x.login("philo","philo1234"),true);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+            @Nested
+            class failed{
+                @Test
+                public void noUsername(){
+                    try {
+                        assertEquals(x.login("","marcx1233"),false);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+                @Test
+                public void noPassword(){
+                    try {
+                        assertEquals(x.login("marc2",""),false);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+                @Test
+                public void incorrectUsername(){
+                    try {
+                        assertEquals(x.login("nrmaluser","normaluser2"),false);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+                @Test
+                public void incorrectPassword(){
+                    try {
+                        assertEquals(x.login("philo","phil1234"),false);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+            @AfterEach
+            public void clean(){
+                x=null;
+            }
+        }}
+
     @Nested
     class UserAsUnit {
         User x;
