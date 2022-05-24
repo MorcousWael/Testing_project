@@ -2,6 +2,7 @@ package Test;
 
 import classes.Transactions;
 import classes.User;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -21,20 +22,17 @@ public class Integration_Test_between_USER_TRANSACTIONS {
         class AcceptedBill {
             @Test
             public void Test1() throws SQLException {
-                assertEquals(Transactions.TransferBill(user1, 1234, "Electricity"), true);
+                assertEquals(Transactions.TransferBill(user1, 1, "Electricity"), true);
             }
 
             @Test
             public void Test2() throws SQLException {
                 assertEquals(Transactions.TransferBill(user1,2000,"Electricity"),true);
             }
-            @Test
-            public void Test3() throws SQLException {
-                assertEquals(Transactions.TransferBill(user1,0,"Electricity"),false);
-            }
+
             @Test
             //Boundary (Exactly the Balance we have)
-            public void Test4() throws SQLException {
+            public void Test3() throws SQLException {
                 assertEquals(Transactions.TransferBill(user1,720,"Electricity"),true);
             }
         }
@@ -48,6 +46,18 @@ public class Integration_Test_between_USER_TRANSACTIONS {
             public void Test2() throws SQLException {
                 assertEquals(Transactions.TransferBill(user1,2000000000,"Electricity"),false);
             }
+            @Test
+            public void zero() throws SQLException {
+                assertEquals(Transactions.TransferBill(user1,0,"Electricity"),false);
+            }
+            @Test
+            public void negativeNumbers() throws SQLException {
+                assertEquals(Transactions.TransferBill(user1,-100,"Electricity"),false);
+            }
+        }
+        @AfterEach
+        public void clean() throws SQLException {
+            user1.setBalance(user1.getBalance()+10000);
         }
     }
     @Nested
@@ -67,11 +77,11 @@ public class Integration_Test_between_USER_TRANSACTIONS {
 
             @Test
             public void Test2() throws SQLException {
-                assertEquals(Transactions.TransferBank(user1,60000000),false);
+                assertEquals(Transactions.TransferBank(user1,1),true);
             }
             @Test
             public void Test3() throws SQLException {
-                assertEquals(Transactions.TransferBank(user1,0),false);
+                assertEquals(Transactions.TransferBank(user1,1000),true);
             }
             @Test
             //Boundary (Exactly the Balance we have)
@@ -90,14 +100,18 @@ public class Integration_Test_between_USER_TRANSACTIONS {
                 assertEquals(Transactions.TransferBank(user1,3000000),false);
             }
             @Test
-            public void Test3() throws SQLException{
+            public void zero() throws SQLException{
                 assertEquals(Transactions.TransferBank(user1,0),false);
             }
             @Test
-            public void Test4() throws SQLException{
+            public void negativeNumber() throws SQLException{
                 assertEquals(Transactions.TransferBank(user1,-400),false);
             }
 
+        }
+        @AfterEach
+        public void clean() throws SQLException {
+            user1.setBalance(user1.getBalance()+10000);
         }
     }
     @Nested
@@ -155,7 +169,10 @@ public class Integration_Test_between_USER_TRANSACTIONS {
             }
 
         }
-
+        @AfterEach
+        public void clean() throws SQLException {
+            user1.setBalance(user1.getBalance()+10000);
+        }
 
     }
 

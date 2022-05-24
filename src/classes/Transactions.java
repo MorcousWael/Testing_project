@@ -27,10 +27,8 @@ public class Transactions {
             return true;
         return false;
     }
-
     public Transactions() {
     }
-
     public Transactions(User first, User second, int amount) {
         this.first = first;
         firstName=first.getName();
@@ -104,51 +102,39 @@ public class Transactions {
     public User getSecond() {
         return second;
     }
-
     public int getAmount() {
         return amount;
     }
-
     public void setAmount(int amount) {
         this.amount = amount;
     }
-
     public void setSecond(User second) {
         this.second = second;
     }
-
     public String getFirstName() {
         return firstName;
     }
-
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
-
     public String getSecondName() {
         return secondName;
     }
-
     public void setSecondName(String secondName) {
         this.secondName = secondName;
     }
-
     public String getType() {
         return Type;
     }
-
     public void setType(String type) {
         Type = type;
     }
-
     public int getTnum() {
         return Tnum;
     }
-
     public void setTnum(int tnum) {
         Tnum = tnum;
     }
-
     public String toString(){
         return Tnum+firstName+" "+Type+" "+secondName+" amount= "+amount;
     }
