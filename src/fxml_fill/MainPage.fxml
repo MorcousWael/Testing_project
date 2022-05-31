@@ -11,7 +11,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane style="-fx-background-radius: 20;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.HelloController">
+<AnchorPane style="-fx-background-radius: 20;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.HelloController">
    <children>
       <AnchorPane prefHeight="616.0" prefWidth="993.0" style="-fx-background-color: #030307; -fx-background-radius: 15;">
          <children>
@@ -32,15 +32,6 @@
             <VBox prefHeight="544.0" prefWidth="74.0" style="-fx-background-color: #131022; -fx-background-radius: 15 0 0 15;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
                   <Pane prefHeight="79.0" prefWidth="74.0" style="-fx-background-radius: 15 0 15 15;" />
-                  <Button contentDisplay="TOP" mnemonicParsing="false" prefHeight="66.0" prefWidth="74.0" styleClass="button3" stylesheets="@../css/fullpackstyling.css" text="Profile" textFill="#a868a0">
-                     <graphic>
-                        <ImageView fitHeight="25.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../resources/cat.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
                   <Button fx:id="PayBillButton" contentDisplay="TOP" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#switchToPayBills" prefHeight="66.0" prefWidth="74.0" styleClass="button3" stylesheets="@../css/fullpackstyling.css" text="Pay Bills" textFill="#a868a0">
                      <graphic>
                         <ImageView fitHeight="25.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">

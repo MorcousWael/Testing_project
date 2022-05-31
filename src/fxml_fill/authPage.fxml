@@ -11,7 +11,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane style="-fx-background-radius: 20;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.authPageController">
+<AnchorPane style="-fx-background-radius: 20;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.authPageController">
    <children>
       <AnchorPane prefHeight="616.0" prefWidth="993.0" style="-fx-background-color: #030307; -fx-background-radius: 15;">
          <children>
@@ -63,8 +63,14 @@
                         <Font name="Arial" size="40.0" />
                      </font>
                   </Button>
-                  <Label layoutX="65.0" layoutY="146.0" text="username" textFill="WHITE" />
-                  <Label layoutX="65.0" layoutY="186.0" text="password" textFill="WHITE" />
+                  <Label layoutX="64.0" layoutY="140.0" text="username" textFill="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font></Label>
+                  <Label layoutX="65.0" layoutY="181.0" text="password" textFill="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font></Label>
                   <Button fx:id="authSignup" layoutX="122.0" layoutY="426.0" mnemonicParsing="false" onAction="#switchSignup" opacity="0.7" prefHeight="54.0" prefWidth="276.0" styleClass="button2" stylesheets="@../css/fullpackstyling.css" text="Signup" textAlignment="JUSTIFY" textFill="WHITE">
                      <font>
                         <Font name="Arial" size="40.0" />

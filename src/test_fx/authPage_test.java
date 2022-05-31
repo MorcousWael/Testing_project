@@ -28,38 +28,13 @@ import static org.testfx.api.FxAssert.verifyThat;
 
 @ExtendWith(ApplicationExtension.class)
 public class authPage_test{
-
-    private Button button;
-    private Button authLogin;
-    private Button authSignup;
-
-
     @Nested
     public class test_signup_button {
-        private double xOffset = 0;
-        private double yOffset = 0;
 
         @Start
         public void start(Stage stage) throws Exception {
             Parent root = FXMLLoader.load(getClass().getResource("../fxml_fill/authPage.fxml"));
-
-            stage.initStyle(StageStyle.TRANSPARENT);
-
-            //grab your root here
-            root.setOnMousePressed(event -> {
-                xOffset = event.getSceneX();
-                yOffset = event.getSceneY();
-            });
-
-            //move around here
-            root.setOnMouseDragged(event -> {
-                stage.setX(event.getScreenX() - xOffset);
-                stage.setY(event.getScreenY() - yOffset);
-            });
-            Scene scene = new Scene(root);
-            //set transparent
-            scene.setFill(Color.TRANSPARENT);
-            stage.setScene(scene);
+            stage.setScene(new Scene(root, 993, 616));
             stage.show();
         }
 
@@ -79,29 +54,10 @@ public class authPage_test{
     }
     @Nested
     public class test_login_button {
-        private double xOffset = 0;
-        private double yOffset = 0;
         @Start
         public void start(Stage stage) throws Exception {
             Parent root = FXMLLoader.load(getClass().getResource("../fxml_fill/authPage.fxml"));
-
-            stage.initStyle(StageStyle.TRANSPARENT);
-
-            //grab your root here
-            root.setOnMousePressed(event -> {
-                xOffset = event.getSceneX();
-                yOffset = event.getSceneY();
-            });
-
-            //move around here
-            root.setOnMouseDragged(event -> {
-                stage.setX(event.getScreenX() - xOffset);
-                stage.setY(event.getScreenY() - yOffset);
-            });
-            Scene scene = new Scene(root);
-            //set transparent
-            scene.setFill(Color.TRANSPARENT);
-            stage.setScene(scene);
+            stage.setScene(new Scene(root, 993, 616));
             stage.show();
         }
         @Test

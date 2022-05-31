@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="649.0" prefWidth="1087.0" style="-fx-background-color: #2F2B43;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.HelloController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="649.0" prefWidth="1087.0" style="-fx-background-color: #2F2B43;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.HelloController">
    <children>
       <AnchorPane prefHeight="519.0" prefWidth="262.0" style="-fx-background-color: #393351;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -28,7 +28,7 @@
          </children></AnchorPane>
       <Pane layoutX="262.0" prefHeight="649.0" prefWidth="631.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="262.0" AnchorPane.rightAnchor="-4.0" AnchorPane.topAnchor="0.0">
          <children>
-            <TableView fx:id="TransactionTable" layoutX="108.0" layoutY="63.0" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <TableView fx:id="TransactionTable" layoutX="108.0" layoutY="63.0" prefHeight="457.0" prefWidth="601.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <columns>
                   <TableColumn fx:id="Tnumm" prefWidth="121.0" text="Transaction Number" />
                   <TableColumn fx:id="User1Col" prefWidth="82.0" text="Name" />
@@ -37,7 +37,11 @@
                   <TableColumn fx:id="Amount" prefWidth="180.0" text="Amount" />
                </columns>
             </TableView>
-            <Button fx:id="Home_button_id" layoutX="748.0" layoutY="586.0" mnemonicParsing="false" onAction="#switchToMainPage" text="Home" />
+            <Button fx:id="Home_button_id" layoutX="720.0" layoutY="574.0" mnemonicParsing="false" onAction="#switchToMainPage" opacity="0.7" prefHeight="35.0" prefWidth="82.0" styleClass="button2" stylesheets="@../css/fullpackstyling.css" text="Home" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
          </children>
       </Pane>
       <VBox layoutX="-4.0" layoutY="168.0" prefHeight="356.0" prefWidth="262.0">

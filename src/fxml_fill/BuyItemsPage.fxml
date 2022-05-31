@@ -13,7 +13,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="649.0" prefWidth="1087.0" style="-fx-background-color: #2F2B43;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.HelloController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="649.0" prefWidth="1087.0" style="-fx-background-color: #2F2B43;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.HelloController">
    <children>
       <AnchorPane prefHeight="519.0" prefWidth="262.0" style="-fx-background-color: #393351;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -88,7 +88,7 @@
             <Pane layoutX="76.0" layoutY="106.0">
                <children>
                   <Button fx:id="buy_TV" mnemonicParsing="false" onAction="#BuyTv" opacity="0.7" prefHeight="190.0" prefWidth="168.0" styleClass="button2" stylesheets="@../css/fullpackstyling.css" />
-                  <Circle layoutX="84.0" layoutY="87.0" radius="50.0" strokeType="INSIDE">
+                  <Circle layoutX="40.0" layoutY="40.0" radius="40.0" strokeType="INSIDE">
                      <stroke>
                         <LinearGradient endX="1.0" endY="1.0">
                            <stops>
@@ -106,7 +106,7 @@
                         </LinearGradient>
                      </fill>
                   </Circle>
-                  <ImageView fitHeight="64.0" fitWidth="113.0" layoutX="27.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="40.0" fitWidth="72.0" layoutX="5.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../resources/tv.png" />
                      </image>
@@ -120,7 +120,7 @@
             <Pane layoutX="316.0" layoutY="106.0" prefHeight="202.0" prefWidth="179.0">
                <children>
                   <Button fx:id="buy_ps5" mnemonicParsing="false" onAction="#BuyPS5" opacity="0.7" prefHeight="190.0" prefWidth="168.0" styleClass="button2" stylesheets="@../css/fullpackstyling.css" />
-                  <Circle layoutX="84.0" layoutY="87.0" radius="50.0" strokeType="INSIDE">
+                  <Circle layoutX="40.0" layoutY="37.0" radius="40.0" strokeType="INSIDE">
                      <stroke>
                         <LinearGradient endX="1.0" endY="1.0">
                            <stops>
@@ -138,7 +138,7 @@
                         </LinearGradient>
                      </fill>
                   </Circle>
-                  <ImageView fitHeight="99.0" fitWidth="178.0" layoutX="3.0" layoutY="41.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="64.0" fitWidth="116.0" layoutX="-18.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../resources/ps55.png" />
                      </image>
@@ -152,7 +152,7 @@
             <Pane layoutX="71.0" layoutY="354.0" prefHeight="202.0" prefWidth="179.0">
                <children>
                   <Button fx:id="buy_i_phone" mnemonicParsing="false" onAction="#Buyiphone" opacity="0.7" prefHeight="190.0" prefWidth="168.0" styleClass="button2" stylesheets="@../css/fullpackstyling.css" />
-                  <Circle layoutX="84.0" layoutY="87.0" radius="50.0" strokeType="INSIDE">
+                  <Circle layoutX="43.0" layoutY="39.0" radius="40.0" strokeType="INSIDE">
                      <stroke>
                         <LinearGradient endX="1.0" endY="1.0">
                            <stops>
@@ -170,7 +170,7 @@
                         </LinearGradient>
                      </fill>
                   </Circle>
-                  <ImageView fitHeight="143.0" fitWidth="126.0" layoutX="23.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="64.0" fitWidth="82.0" layoutX="16.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../resources/iphone.png" />
                      </image>
@@ -183,8 +183,8 @@
             </Pane>
             <Pane layoutX="316.0" layoutY="354.0" prefHeight="202.0" prefWidth="179.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#Buymac" opacity="0.7" prefHeight="190.0" prefWidth="168.0" styleClass="button2" stylesheets="@../css/fullpackstyling.css" />
-                  <Circle layoutX="84.0" layoutY="87.0" radius="50.0" stroke="#ff924f" strokeType="INSIDE">
+                  <Button fx:id="buy_mac" mnemonicParsing="false" onAction="#Buymac" opacity="0.7" prefHeight="190.0" prefWidth="168.0" styleClass="button2" stylesheets="@../css/fullpackstyling.css" />
+                  <Circle layoutX="40.0" layoutY="40.0" radius="40.0" stroke="#ff924f" strokeType="INSIDE">
                      <fill>
                         <LinearGradient endX="1.0" endY="1.0" startY="0.4952380952380952">
                            <stops>
@@ -195,7 +195,7 @@
                         </LinearGradient>
                      </fill>
                   </Circle>
-                  <ImageView fitHeight="93.0" fitWidth="91.0" layoutX="37.0" layoutY="46.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="50.0" fitWidth="72.0" layoutX="13.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../resources/mac.png" />
                      </image>
@@ -209,7 +209,7 @@
             <Pane layoutX="559.0" layoutY="354.0" prefHeight="202.0" prefWidth="179.0">
                <children>
                   <Button fx:id="buy_sb" mnemonicParsing="false" onAction="#buy_st" opacity="0.7" prefHeight="190.0" prefWidth="168.0" styleClass="button2" stylesheets="@../css/fullpackstyling.css" />
-                  <Circle layoutX="84.0" layoutY="87.0" radius="50.0" strokeType="INSIDE">
+                  <Circle layoutX="40.0" layoutY="40.0" radius="40.0" strokeType="INSIDE">
                      <fill>
                         <LinearGradient endX="1.0" endY="1.0" startY="0.4952380952380952">
                            <stops>
@@ -220,7 +220,7 @@
                         </LinearGradient>
                      </fill>
                   </Circle>
-                  <ImageView fitHeight="49.0" fitWidth="37.0" layoutX="66.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="49.0" fitWidth="37.0" layoutX="22.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../resources/icons8_Broccoli_64px_2.png" />
                      </image>
@@ -234,7 +234,7 @@
             <Pane layoutX="559.0" layoutY="106.0" prefHeight="190.0" prefWidth="174.0">
                <children>
                   <Button fx:id="buy_sam" mnemonicParsing="false" onAction="#buy_s" opacity="0.7" prefHeight="190.0" prefWidth="168.0" styleClass="button2" stylesheets="@../css/fullpackstyling.css" />
-                  <Circle layoutX="84.0" layoutY="87.0" radius="50.0" strokeType="INSIDE">
+                  <Circle layoutX="41.0" layoutY="40.0" radius="40.0" strokeType="INSIDE">
                      <fill>
                         <LinearGradient endX="1.0" endY="1.0" startY="0.4952380952380952">
                            <stops>
@@ -245,7 +245,7 @@
                         </LinearGradient>
                      </fill>
                   </Circle>
-                  <ImageView fitHeight="49.0" fitWidth="37.0" layoutX="66.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="49.0" fitWidth="37.0" layoutX="23.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../resources/icons8_Play_Button_50px.png" />
                      </image>
@@ -261,6 +261,7 @@
                   <Font size="18.0" />
                </font>
             </Button>
+            <Label fx:id="alert_ok2" layoutX="238.0" layoutY="299.0" prefHeight="18.0" prefWidth="70.0" />
          </children>
       </Pane>
    </children>

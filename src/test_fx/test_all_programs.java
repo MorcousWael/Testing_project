@@ -29,33 +29,12 @@ import static org.testfx.api.FxAssert.verifyThat;
 
 @ExtendWith(ApplicationExtension.class)
 public class test_all_programs {
-    private double xOffset = 0;
-    private double yOffset = 0;
-
     @Start
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("../fxml_fill/authPage.fxml"));
-
-        stage.initStyle(StageStyle.TRANSPARENT);
-
-        //grab your root here
-        root.setOnMousePressed(event -> {
-            xOffset = event.getSceneX();
-            yOffset = event.getSceneY();
-        });
-
-        //move around here
-        root.setOnMouseDragged(event -> {
-            stage.setX(event.getScreenX() - xOffset);
-            stage.setY(event.getScreenY() - yOffset);
-        });
-        Scene scene = new Scene(root);
-        //set transparent
-        scene.setFill(Color.TRANSPARENT);
-        stage.setScene(scene);
+        stage.setScene(new Scene(root, 993, 616));
         stage.show();
     }
-
     @Test
     void Signup_contain_right_text(FxRobot robot) throws InterruptedException {
 
@@ -66,12 +45,23 @@ public class test_all_programs {
         robot.clickOn("#authLogin");
         robot.clickOn("#PayBillButton");
         robot.clickOn("#ElectButton");
+        robot.clickOn("#alert_ok");
         robot.clickOn("#GasButton");
+        robot.clickOn("#alert_ok");
         robot.clickOn("#home_id2");
         robot.clickOn("#StatementButton");
         robot.clickOn("#Home_button_id");
         robot.clickOn("#BuyItemsButton");
         robot.clickOn("#buy_mac");
-
+        robot.clickOn("#alert_ok2");
+        robot.clickOn("#buy_ps5");
+        robot.clickOn("#alert_ok2");
+        robot.clickOn("#home_id3");
+        robot.clickOn("#TransferLabel");
+        robot.clickOn("#transid_1");
+        robot.write("98765432101234");
+        robot.clickOn("#transid_2");
+        robot.write("10000");
+        robot.clickOn("#confirm_button1");
     }
 }

@@ -30,60 +30,20 @@ public class HelloController_test {
     //home_page_test
     @Nested
     public class Home_page_GUI_tests {
-        private double xOffset = 0;
-        private double yOffset = 0;
-
         @Start
-        public void start(Stage stage) throws Exception {
+        public void start(Stage primaryStage) throws Exception {
             Parent root = FXMLLoader.load(getClass().getResource("../fxml_fill/MainPage.fxml"));
-
-            stage.initStyle(StageStyle.TRANSPARENT);
-
-            //grab your root here
-            root.setOnMousePressed(event -> {
-                xOffset = event.getSceneX();
-                yOffset = event.getSceneY();
-            });
-
-            //move around here
-            root.setOnMouseDragged(event -> {
-                stage.setX(event.getScreenX() - xOffset);
-                stage.setY(event.getScreenY() - yOffset);
-            });
-            Scene scene = new Scene(root);
-            //set transparent
-            scene.setFill(Color.TRANSPARENT);
-            stage.setScene(scene);
-            stage.show();
+            primaryStage.setScene(new Scene(root, 993, 616));
+            primaryStage.show();
         }
 
         @Nested
         public class Home_page_button_test {
-            private double xOffset = 0;
-            private double yOffset = 0;
-
             @Start
-            public void start(Stage stage) throws Exception {
+            public void start(Stage primaryStage) throws Exception {
                 Parent root = FXMLLoader.load(getClass().getResource("../fxml_fill/MainPage.fxml"));
-
-                stage.initStyle(StageStyle.TRANSPARENT);
-
-                //grab your root here
-                root.setOnMousePressed(event -> {
-                    xOffset = event.getSceneX();
-                    yOffset = event.getSceneY();
-                });
-
-                //move around here
-                root.setOnMouseDragged(event -> {
-                    stage.setX(event.getScreenX() - xOffset);
-                    stage.setY(event.getScreenY() - yOffset);
-                });
-                Scene scene = new Scene(root);
-                //set transparent
-                scene.setFill(Color.TRANSPARENT);
-                stage.setScene(scene);
-                stage.show();
+                primaryStage.setScene(new Scene(root, 993, 616));
+                primaryStage.show();
             }
 
             @Test
@@ -103,38 +63,18 @@ public class HelloController_test {
 
             @Test
             void BuyItems_button_in_main_page(FxRobot robot) {
-                verifyThat("#BuyItemsButton", LabeledMatchers.hasText("Buy Items"));
+                verifyThat("#BuyItemsButton", LabeledMatchers.hasText("Buy"));
             }
         }
 
         //home_page
         @Nested
         public class Home_page_switch_test {
-            private double xOffset = 0;
-            private double yOffset = 0;
-
             @Start
-            public void start(Stage stage) throws Exception {
+            public void start(Stage primaryStage) throws Exception {
                 Parent root = FXMLLoader.load(getClass().getResource("../fxml_fill/MainPage.fxml"));
-
-                stage.initStyle(StageStyle.TRANSPARENT);
-
-                //grab your root here
-                root.setOnMousePressed(event -> {
-                    xOffset = event.getSceneX();
-                    yOffset = event.getSceneY();
-                });
-
-                //move around here
-                root.setOnMouseDragged(event -> {
-                    stage.setX(event.getScreenX() - xOffset);
-                    stage.setY(event.getScreenY() - yOffset);
-                });
-                Scene scene = new Scene(root);
-                //set transparent
-                scene.setFill(Color.TRANSPARENT);
-                stage.setScene(scene);
-                stage.show();
+                primaryStage.setScene(new Scene(root, 993, 616));
+                primaryStage.show();
             }
 
             @Test
@@ -142,7 +82,7 @@ public class HelloController_test {
                 //when:
                 robot.clickOn("#PayBillButton");
                 //then:
-                verifyThat("#ElectButton", LabeledMatchers.hasText("Electricity"));
+                verifyThat("#ElectLabel", LabeledMatchers.hasText("Electricity"));
             }
 
             @Test
@@ -150,7 +90,7 @@ public class HelloController_test {
                 //when:
                 robot.clickOn("#TransferLabel");
                 //then:
-                verifyThat("#confirmButton", LabeledMatchers.hasText("Confirm"));
+                verifyThat("#confirm_button1", LabeledMatchers.hasText("Transfer"));
             }
 
             @Test
@@ -166,7 +106,7 @@ public class HelloController_test {
                 //when:
                 robot.clickOn("#BuyItemsButton");
                 //then:
-                verifyThat("#buy_i_phone", LabeledMatchers.hasText("Buy"));
+                verifyThat("#iphone", LabeledMatchers.hasText("iPhone 13 128GB"));
             }
         }
     }
@@ -177,40 +117,20 @@ public class HelloController_test {
     public class Transfer_page {
         @Nested
         public class Transfer_page_button_test {
-            private double xOffset = 0;
-            private double yOffset = 0;
-
             @Start
-            public void start(Stage stage) throws Exception {
-                Parent root = FXMLLoader.load(getClass().getResource("../fxml_fill/MainPage.fxml"));
-
-                stage.initStyle(StageStyle.TRANSPARENT);
-
-                //grab your root here
-                root.setOnMousePressed(event -> {
-                    xOffset = event.getSceneX();
-                    yOffset = event.getSceneY();
-                });
-
-                //move around here
-                root.setOnMouseDragged(event -> {
-                    stage.setX(event.getScreenX() - xOffset);
-                    stage.setY(event.getScreenY() - yOffset);
-                });
-                Scene scene = new Scene(root);
-                //set transparent
-                scene.setFill(Color.TRANSPARENT);
-                stage.setScene(scene);
-                stage.show();
+            public void start(Stage primaryStage) throws Exception {
+                Parent root = FXMLLoader.load(getClass().getResource("../fxml_fill/TransferPage.fxml"));
+                primaryStage.setScene(new Scene(root, 1087, 649));
+                primaryStage.show();
             }
 
             @Test
             void confirm_button_in_transfer_page(FxRobot robot) {
-                verifyThat("#confirmButton", LabeledMatchers.hasText("Confirm"));
+                verifyThat("#confirm_button1", LabeledMatchers.hasText("Transfer"));
             }
             @Test
             void home_button_in_transfer_page(FxRobot robot) {
-                verifyThat("#home_id", LabeledMatchers.hasText("Home"));
+                verifyThat("#home_id1", LabeledMatchers.hasText("Home"));
             }
         }
     }
@@ -221,31 +141,11 @@ public class HelloController_test {
     public class Statement_page {
         @Nested
         public class Transfer_page_button_test {
-            private double xOffset = 0;
-            private double yOffset = 0;
-
             @Start
-            public void start(Stage stage) throws Exception {
+            public void start(Stage primaryStage) throws Exception {
                 Parent root = FXMLLoader.load(getClass().getResource("../fxml_fill/StatementPage.fxml"));
-
-                stage.initStyle(StageStyle.TRANSPARENT);
-
-                //grab your root here
-                root.setOnMousePressed(event -> {
-                    xOffset = event.getSceneX();
-                    yOffset = event.getSceneY();
-                });
-
-                //move around here
-                root.setOnMouseDragged(event -> {
-                    stage.setX(event.getScreenX() - xOffset);
-                    stage.setY(event.getScreenY() - yOffset);
-                });
-                Scene scene = new Scene(root);
-                //set transparent
-                scene.setFill(Color.TRANSPARENT);
-                stage.setScene(scene);
-                stage.show();
+                primaryStage.setScene(new Scene(root, 1087, 649));
+                primaryStage.show();
             }
             @Test
             void home_button_in_statment_page(FxRobot robot) {
@@ -260,31 +160,11 @@ public class HelloController_test {
     public class Pay_bills_page {
         @Nested
         public class Transfer_page_button_test {
-            private double xOffset = 0;
-            private double yOffset = 0;
-
             @Start
-            public void start(Stage stage) throws Exception {
+            public void start(Stage primaryStage) throws Exception {
                 Parent root = FXMLLoader.load(getClass().getResource("../fxml_fill/PayBillsPage.fxml"));
-
-                stage.initStyle(StageStyle.TRANSPARENT);
-
-                //grab your root here
-                root.setOnMousePressed(event -> {
-                    xOffset = event.getSceneX();
-                    yOffset = event.getSceneY();
-                });
-
-                //move around here
-                root.setOnMouseDragged(event -> {
-                    stage.setX(event.getScreenX() - xOffset);
-                    stage.setY(event.getScreenY() - yOffset);
-                });
-                Scene scene = new Scene(root);
-                //set transparent
-                scene.setFill(Color.TRANSPARENT);
-                stage.setScene(scene);
-                stage.show();
+                primaryStage.setScene(new Scene(root, 1087, 649));
+                primaryStage.show();
             }
             @Test
             void home_button_in_pay_bills_page(FxRobot robot) {
@@ -292,56 +172,40 @@ public class HelloController_test {
             }
             @Test
             void electricity_button_in_pay_bills_page(FxRobot robot) {
-                verifyThat("#ElectButton", LabeledMatchers.hasText("Electricity"));
+                verifyThat("#ElectLabel", LabeledMatchers.hasText("Electricity"));
             }
             @Test
             void Water_button_in_pay_bills_page(FxRobot robot) {
-                verifyThat("#waterButton", LabeledMatchers.hasText("Water"));
+                verifyThat("#WaterLabel", LabeledMatchers.hasText("Water"));
             }
             @Test
             void Loans_button_in_pay_bills_page(FxRobot robot) {
-                verifyThat("#LoansButton", LabeledMatchers.hasText("Loans"));
+                verifyThat("#LoansLabel", LabeledMatchers.hasText("Loans"));
             }
             @Test
             void Gas_button_in_pay_bills_page(FxRobot robot) {
-                verifyThat("#GasButton", LabeledMatchers.hasText("Gas"));
+                verifyThat("#GasLabel", LabeledMatchers.hasText("Gas"));
             }
             @Test
             void Transportation_button_in_pay_bills_page(FxRobot robot) {
-                verifyThat("#TransButton", LabeledMatchers.hasText("Transpportation"));
+                verifyThat("#TransLabel", LabeledMatchers.hasText("Transportation"));
+            }
+            @Test
+            void Grocery_button_in_pay_bills_page(FxRobot robot) {
+                verifyThat("#GroceryLabel", LabeledMatchers.hasText("Grocery"));
             }
         }
     }
-
+    //buy itens page
     @Nested
     public class buy_items_page {
         @Nested
         public class buy_items_page_button_test {
-            private double xOffset = 0;
-            private double yOffset = 0;
-
             @Start
-            public void start(Stage stage) throws Exception {
+            public void start(Stage primaryStage) throws Exception {
                 Parent root = FXMLLoader.load(getClass().getResource("../fxml_fill/BuyItemsPage.fxml"));
-
-                stage.initStyle(StageStyle.TRANSPARENT);
-
-                //grab your root here
-                root.setOnMousePressed(event -> {
-                    xOffset = event.getSceneX();
-                    yOffset = event.getSceneY();
-                });
-
-                //move around here
-                root.setOnMouseDragged(event -> {
-                    stage.setX(event.getScreenX() - xOffset);
-                    stage.setY(event.getScreenY() - yOffset);
-                });
-                Scene scene = new Scene(root);
-                //set transparent
-                scene.setFill(Color.TRANSPARENT);
-                stage.setScene(scene);
-                stage.show();
+                primaryStage.setScene(new Scene(root, 1087, 649));
+                primaryStage.show();
             }
             @Test
             void mac_button_in_buy_items_page(FxRobot robot) {

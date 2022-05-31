@@ -29,7 +29,7 @@ public class SignupController_test {
     @Start
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("../fxml_fill/Signup.fxml"));
-        primaryStage.setScene(new Scene(root, 600, 400));
+        primaryStage.setScene(new Scene(root, 951, 531));
         primaryStage.show();
     }
 
@@ -41,17 +41,17 @@ public class SignupController_test {
     @Test
     void when_button_is_clicked_scene_changes(FxRobot robot) {
         robot.clickOn("#SignUp1");
-        robot.write("osaloveShisFriends123");
+        robot.write("osaaaaaaaaaaaa");
         robot.clickOn("#SignUp2");
-        robot.write("12345678osa");
+        robot.write("osa1234567891osa");
         robot.clickOn("#SignUp3");
-        robot.write("osa1osa@yahoo.com");
+        robot.write("osaaa@yahoo.com");
         robot.clickOn("#SignUp4");
-        robot.write("12345678912345");
+        robot.write("12345213456789");
         // when:
         robot.clickOn("#Submit_button");
         // then: since we switched scene the we can get the value for the submit button in the signup.fxml scene.
-        verifyThat("#Submit_button", LabeledMatchers.hasText("Submit"));
+        verifyThat("#PayBillButton", LabeledMatchers.hasText("Pay Bills"));
     }
 
 }
