@@ -15,7 +15,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.*;
-import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
@@ -30,8 +29,8 @@ public class HelloController implements Initializable {
 
 
     public Label HelloLabel;
-    public TextField amountTr;
-    public TextField cdN;
+    public TextField transid_2;
+    public TextField transid_1;
     @FXML
     private TableView<Transactions> TransactionTable;
     @FXML
@@ -97,7 +96,7 @@ public class HelloController implements Initializable {
 
         long startTime5 = System.currentTimeMillis();
 
-        Parent root = FXMLLoader.load(getClass().getResource("../fxml_fill/PayBillPage.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("../fxml_fill/PayBillsPage.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -243,7 +242,50 @@ public class HelloController implements Initializable {
             alert.show();
         }
     }
-
+        public void buy_s(ActionEvent a){
+        long startTime7 = System.currentTimeMillis();
+        try {
+            if (x.getBalance() <20000) throw new ArithmeticException();
+            else {
+                Transactions.TransferBank(x,20000);
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setTitle("Congratulations");
+                alert.setContentText("Item bought successfully");
+                alert.show();
+                long stopTime7 = System.currentTimeMillis();
+                long reactiontTime7 = stopTime7 - startTime7;
+                System.out.println("The load time of Buying Samsung button is " + reactiontTime7 + " ms");
+            }
+        }
+        catch (ArithmeticException | SQLException al) {
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Insufficient Funds");
+            alert.setContentText("Check Balance");
+            alert.show();
+        }
+    }
+        public void buy_st(ActionEvent a){
+        long startTime7 = System.currentTimeMillis();
+            try {
+                if (x.getBalance() <20000) throw new ArithmeticException();
+                else {
+                    Transactions.TransferBank(x,20000);
+                    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                    alert.setTitle("Congratulations");
+                    alert.setContentText("Item bought successfully");
+                    alert.show();
+                    long stopTime7 = System.currentTimeMillis();
+                    long reactiontTime7 = stopTime7 - startTime7;
+                    System.out.println("The load time of Buying S8 button is " + reactiontTime7 + " ms");
+                }
+        }
+        catch (ArithmeticException | SQLException al) {
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Insufficient Funds");
+            alert.setContentText("Check Balance");
+            alert.show();
+        }
+    }
         public int gRand(){
         Random rand = new Random();
         int n = rand.nextInt(1000);
@@ -369,21 +411,44 @@ public class HelloController implements Initializable {
             alert.show();
         }
     }
+        public void PayGroceries(ActionEvent a){
+        long startTime9 = System.currentTimeMillis();
+        int am=gRand();
+        try
+        {if (x.getBalance() <am) throw new ArithmeticException();
+        else {
+            Transactions.TransferBill(x,am,"pay Grocery");
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("pay");
+            alert.setContentText("please pay "+ am+"EGP");
+            alert.show();
+            long stopTime9 = System.currentTimeMillis();
+            long reactiontTime9 = stopTime9 - startTime9;
+            System.out.println("The load time of Paying Grocery is " + reactiontTime9 + " ms");
+        }
+        }
+        catch (ArithmeticException | SQLException al) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("insufficient fund");
+            alert.setContentText("to Pay "+am+" EGP");
+            alert.show();
+        }
+    }
         public void transferConfirm(ActionEvent a){
             try{
                 User y =new User();
-                y.EnterCardNumber(cdN.getText());
-                int z=Integer.valueOf(amountTr.getText());
+                y.EnterCardNumber(transid_1.getText());
+                int z=Integer.valueOf(transid_2.getText());
                 Transactions.Transfer(x,y,z);
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
                 alert.setTitle("amount transfered Successfully");
-                alert.setContentText("paid amount = "+amountTr.getText()+" EGP");
+                alert.setContentText("paid amount = "+ transid_2.getText()+" EGP");
                 alert.show();
             }
             catch (Exception E){
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("insufficient fund");
-                alert.setContentText("to Pay "+amountTr.getText()+" EGP");
+                alert.setContentText("to Pay "+ transid_2.getText()+" EGP");
                 alert.show();
             }
         }

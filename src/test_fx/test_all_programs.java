@@ -2,6 +2,8 @@ package test_fx;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.paint.Color;
+import javafx.stage.StageStyle;
 import javafx.stage.Window;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Disabled;
@@ -27,11 +29,31 @@ import static org.testfx.api.FxAssert.verifyThat;
 
 @ExtendWith(ApplicationExtension.class)
 public class test_all_programs {
+    private double xOffset = 0;
+    private double yOffset = 0;
+
     @Start
-    public void start(Stage primaryStage) throws Exception {
+    public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("../fxml_fill/authPage.fxml"));
-        primaryStage.setScene(new Scene(root, 600, 400));
-        primaryStage.show();
+
+        stage.initStyle(StageStyle.TRANSPARENT);
+
+        //grab your root here
+        root.setOnMousePressed(event -> {
+            xOffset = event.getSceneX();
+            yOffset = event.getSceneY();
+        });
+
+        //move around here
+        root.setOnMouseDragged(event -> {
+            stage.setX(event.getScreenX() - xOffset);
+            stage.setY(event.getScreenY() - yOffset);
+        });
+        Scene scene = new Scene(root);
+        //set transparent
+        scene.setFill(Color.TRANSPARENT);
+        stage.setScene(scene);
+        stage.show();
     }
 
     @Test
@@ -46,13 +68,6 @@ public class test_all_programs {
         robot.clickOn("#ElectButton");
         robot.clickOn("#GasButton");
         robot.clickOn("#home_id2");
-        robot.clickOn("#TransferLabel");
-        robot.clickOn("#transid_1");
-        robot.write("12345678912345");
-        robot.clickOn("#transid_2");
-        robot.write("normaluser");
-        robot.clickOn("#confirmButton");
-        robot.clickOn("#home_id");
         robot.clickOn("#StatementButton");
         robot.clickOn("#Home_button_id");
         robot.clickOn("#BuyItemsButton");

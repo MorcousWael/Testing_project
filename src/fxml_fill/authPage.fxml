@@ -4,89 +4,86 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.paint.Color?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="bodybg" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.authPageController">
-    <children>
-        <Button fx:id="authLogin" alignment="CENTER" layoutX="202.0" layoutY="250.0" mnemonicParsing="false" onAction="#switchHomePage" prefHeight="43.0" prefWidth="196.0" text="Login">
-            <font>
-                <Font name="Berlin Sans FB" size="24.0" />
-            </font>
-            <effect>
-                <DropShadow spread="0.1">
-                    <color>
-                        <Color red="0.14901961386203766" blue="1.0" />
-                    </color>
-                </DropShadow>
-            </effect></Button>
-        <Button fx:id="authSignup" alignment="CENTER" layoutX="202.0" layoutY="316.0" mnemonicParsing="false" onAction="#switchSignup" prefHeight="43.0" prefWidth="196.0" text="Signup">
-            <font>
-                <Font name="Berlin Sans FB" size="24.0" />
-            </font>
-            <effect>
-                <DropShadow spread="0.1">
-                    <color>
-                        <Color red="0.14901961386203766" blue="1.0" />
-                    </color>
-                </DropShadow>
-            </effect>
-        </Button>
-        <Label fx:id="authlabel1" layoutX="82.0" layoutY="34.0" text="Gandalf's Bank">
-            <font>
-                <Font name="Berlin Sans FB" size="64.0" />
-            </font>
-            <effect>
-                <DropShadow blurType="ONE_PASS_BOX" height="30.0" radius="14.5" spread="0.6" width="30.0">
-                    <color>
-                        <Color red="1.0" green="1.0" blue="1.0" />
-                    </color>
-                </DropShadow>
-            </effect>
-        </Label>
-        <Label layoutX="145.0" layoutY="137.0" text="Username:">
-            <font>
-                <Font name="System Bold" size="20.0" />
-            </font>
-            <effect>
-                <DropShadow blurType="ONE_PASS_BOX" height="24.0" radius="11.5" spread="0.6" width="24.0">
-                    <color>
-                        <Color red="1.0" green="1.0" blue="1.0" />
-                    </color>
-                </DropShadow>
-            </effect>
-        </Label>
-        <Label layoutX="148.0" layoutY="183.0" text="Password:">
-            <font>
-                <Font name="System Bold" size="20.0" />
-            </font>
-            <effect>
-                <DropShadow blurType="ONE_PASS_BOX" height="24.0" radius="11.5" spread="0.6" width="24.0">
-                    <color>
-                        <Color red="1.0" green="1.0" blue="1.0" />
-                    </color>
-                </DropShadow>
-            </effect>
-        </Label>
-        <TextField fx:id="authUser" layoutX="252.0" layoutY="139.0" prefHeight="26.0" prefWidth="206.0">
-            <effect>
-                <DropShadow blurType="GAUSSIAN" spread="0.1">
-                    <color>
-                        <Color red="0.15000000596046448" blue="1.0" />
-                    </color>
-                </DropShadow>
-            </effect>
-        </TextField>
-        <PasswordField fx:id="authPass" layoutX="252.0" layoutY="187.0" prefHeight="26.0" prefWidth="206.0">
-            <effect>
-                <DropShadow spread="0.1">
-                    <color>
-                        <Color red="0.14901961386203766" blue="1.0" />
-                    </color>
-                </DropShadow>
-            </effect>
-        </PasswordField>
-    </children>
+<AnchorPane style="-fx-background-radius: 20;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.authPageController">
+   <children>
+      <AnchorPane prefHeight="616.0" prefWidth="993.0" style="-fx-background-color: #030307; -fx-background-radius: 15;">
+         <children>
+            <Pane layoutX="590.0" layoutY="-1.0" prefHeight="93.0" prefWidth="405.0" style="-fx-background-radius: 20 20 0 0;" styleClass="linear-grad" stylesheets="@../css/fullpackstyling.css">
+               <children>
+                  <ImageView fitHeight="38.0" fitWidth="34.0" layoutX="335.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/ic_usr.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="167.0" layoutY="21.0" text="Gandlaf's Bank" textFill="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <AnchorPane layoutX="22.0" layoutY="85.0" prefHeight="531.0" prefWidth="951.0" style="-fx-background-color: #131022; -fx-background-radius: 10;" stylesheets="@../css/fullpackstyling.css">
+               <children>
+                  <Label layoutX="39.0" layoutY="34.0" text="Welcome to" textFill="WHITE">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="176.0" layoutY="34.0" text="Gandalf's Bank" textFill="#fff600">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="39.0" layoutY="81.0" text="The most sophisticated and efficient way of buying gold" textFill="WHITE">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+                  <Pane layoutX="569.0" layoutY="46.0" prefHeight="297.0" prefWidth="270.0" style="-fx-background-radius: 20;" styleClass="linear-grad" stylesheets="@../css/fullpackstyling.css">
+                     <children>
+                        <Button layoutX="63.0" layoutY="285.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="145.0" styleClass="button4" stylesheets="@../css/fullpackstyling.css" text="Platinum" textFill="WHITE" />
+                        <ImageView fitHeight="144.0" fitWidth="173.0" layoutX="63.0" layoutY="55.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../resources/ic_usr.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+                  <Line endX="100.0" layoutX="445.0" layoutY="54.0" startX="100.0" startY="418.0" stroke="#b9b1b1" strokeDashOffset="2.0" />
+                  <TextField fx:id="authUser" layoutX="155.0" layoutY="141.0" />
+                  <Button fx:id="authLogin" layoutX="122.0" layoutY="342.0" mnemonicParsing="false" onAction="#switchHomePage" opacity="0.7" prefHeight="54.0" prefWidth="276.0" styleClass="button2" stylesheets="@../css/fullpackstyling.css" text="Login" textAlignment="JUSTIFY" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="40.0" />
+                     </font>
+                  </Button>
+                  <Label layoutX="65.0" layoutY="146.0" text="username" textFill="WHITE" />
+                  <Label layoutX="65.0" layoutY="186.0" text="password" textFill="WHITE" />
+                  <Button fx:id="authSignup" layoutX="122.0" layoutY="426.0" mnemonicParsing="false" onAction="#switchSignup" opacity="0.7" prefHeight="54.0" prefWidth="276.0" styleClass="button2" stylesheets="@../css/fullpackstyling.css" text="Signup" textAlignment="JUSTIFY" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="40.0" />
+                     </font>
+                  </Button>
+                  <PasswordField fx:id="authPass" layoutX="155.0" layoutY="182.0" />
+               </children>
+            </AnchorPane>
+            <ImageView fitHeight="38.0" fitWidth="34.0" layoutX="91.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resources/logo.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="134.0" layoutY="29.0" text="Gandlaf's Bank" textFill="WHITE">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
 </AnchorPane>

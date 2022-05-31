@@ -1,6 +1,8 @@
 package test_fx;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.paint.Color;
+import javafx.stage.StageStyle;
 import javafx.stage.Window;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Disabled;
@@ -34,11 +36,31 @@ public class authPage_test{
 
     @Nested
     public class test_signup_button {
+        private double xOffset = 0;
+        private double yOffset = 0;
+
         @Start
-        public void start(Stage primaryStage) throws Exception {
+        public void start(Stage stage) throws Exception {
             Parent root = FXMLLoader.load(getClass().getResource("../fxml_fill/authPage.fxml"));
-            primaryStage.setScene(new Scene(root, 600, 400));
-            primaryStage.show();
+
+            stage.initStyle(StageStyle.TRANSPARENT);
+
+            //grab your root here
+            root.setOnMousePressed(event -> {
+                xOffset = event.getSceneX();
+                yOffset = event.getSceneY();
+            });
+
+            //move around here
+            root.setOnMouseDragged(event -> {
+                stage.setX(event.getScreenX() - xOffset);
+                stage.setY(event.getScreenY() - yOffset);
+            });
+            Scene scene = new Scene(root);
+            //set transparent
+            scene.setFill(Color.TRANSPARENT);
+            stage.setScene(scene);
+            stage.show();
         }
 
         @Test
@@ -49,34 +71,53 @@ public class authPage_test{
         @Test
         void when_button_is_clicked_scene_changes(FxRobot robot) {
             // when:
+
             robot.clickOn("#authSignup");
             // then: since we switched scene the we can get the value for the submit button in the signup.fxml scene.
             verifyThat("#Submit_button", LabeledMatchers.hasText("Submit"));
         }
+    }
+    @Nested
+    public class test_login_button {
+        private double xOffset = 0;
+        private double yOffset = 0;
+        @Start
+        public void start(Stage stage) throws Exception {
+            Parent root = FXMLLoader.load(getClass().getResource("../fxml_fill/authPage.fxml"));
 
-        @Nested
-        public class test_login_button {
-            @Start
-            public void start(Stage primaryStage) throws Exception {
-                Parent root = FXMLLoader.load(getClass().getResource("../fxml_fill/authPage.fxml"));
-                primaryStage.setScene(new Scene(root, 600, 400));
-                primaryStage.show();
-            }
-            @Test
-            void login_contain_right_text(FxRobot robot) {
-                verifyThat("#authLogin", LabeledMatchers.hasText("Login"));
-            }
-            @Test
-            void when_button_is_clicked_alert_show(FxRobot robot) {
-                // when:
-                robot.clickOn("#authUser");
-                robot.write("marc");
-                robot.clickOn("#authPass");
-                robot.write("marcx1233");
-                robot.clickOn("#authLogin");
-                // then: since we switched scene the we can get the value for the submit button in the signup.fxml scene.
-                verifyThat("#TransferLabel", LabeledMatchers.hasText("Transfer"));
-            }
+            stage.initStyle(StageStyle.TRANSPARENT);
+
+            //grab your root here
+            root.setOnMousePressed(event -> {
+                xOffset = event.getSceneX();
+                yOffset = event.getSceneY();
+            });
+
+            //move around here
+            root.setOnMouseDragged(event -> {
+                stage.setX(event.getScreenX() - xOffset);
+                stage.setY(event.getScreenY() - yOffset);
+            });
+            Scene scene = new Scene(root);
+            //set transparent
+            scene.setFill(Color.TRANSPARENT);
+            stage.setScene(scene);
+            stage.show();
+        }
+        @Test
+        void login_contain_right_text(FxRobot robot) {
+            verifyThat("#authLogin", LabeledMatchers.hasText("Login"));
+        }
+        @Test
+        void when_button_is_clicked_alert_show(FxRobot robot) {
+            // when:
+            robot.clickOn("#authUser");
+            robot.write("marc");
+            robot.clickOn("#authPass");
+            robot.write("marcx1233");
+            robot.clickOn("#authLogin");
+            // then: since we switched scene the we can get the value for the submit button in the signup.fxml scene.
+            verifyThat("#TransferLabel", LabeledMatchers.hasText("Transfer"));
         }
     }
-}
+    }

@@ -25,7 +25,6 @@ public class authPageController {
     private Scene scene;
     private Parent root;
 
-    String hello;
 
 
     public void switchSignup(ActionEvent e) throws IOException{
