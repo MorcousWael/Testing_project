@@ -14,12 +14,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Label;
+import javafx.scene.control.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import javafx.scene.Parent;
@@ -33,6 +30,8 @@ public class HelloController implements Initializable {
 
 
     public Label HelloLabel;
+    public TextField amountTr;
+    public TextField cdN;
     @FXML
     private TableView<Transactions> TransactionTable;
     @FXML
@@ -65,26 +64,48 @@ public class HelloController implements Initializable {
         Amount.setCellValueFactory(new PropertyValueFactory<Transactions,Integer>("amount"));
         TransactionTable.setItems(table);
     }
-    public void switchToBuyItems(javafx.event.ActionEvent event) throws IOException {
+    public void switchToBuyItems(ActionEvent event) throws IOException {
+
+        long startTime3 = System.currentTimeMillis();
+
         root = FXMLLoader.load(getClass().getResource("../fxml_fill/BuyItemsPage.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+
+        long stopTime3 = System.currentTimeMillis();
+        long reactiontTime3 = stopTime3 - startTime3;
+        System.out.println("The load time of switching to Buy Items is " + reactiontTime3 + " ms");
+
     }
-    public void switchToTransfer(javafx.event.ActionEvent event) throws IOException {
+    public void switchToTransfer(ActionEvent event) throws IOException {
+
+        long startTime4 = System.currentTimeMillis();
+
         Parent root = FXMLLoader.load(getClass().getResource("../fxml_fill/TransferPage.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+
+        long stopTime4 = System.currentTimeMillis();
+        long reactiontTime4 = stopTime4 - startTime4;
+        System.out.println("The load time of switching to Transfer is " + reactiontTime4 + " ms");
     }
-    public void switchToPayBills(javafx.event.ActionEvent event) throws IOException {
+    public void switchToPayBills(ActionEvent event) throws IOException {
+
+        long startTime5 = System.currentTimeMillis();
+
         Parent root = FXMLLoader.load(getClass().getResource("../fxml_fill/PayBillPage.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+
+        long stopTime5 = System.currentTimeMillis();
+        long reactiontTime5 = stopTime5 - startTime5;
+        System.out.println("The load time of switching to PayBills is " + reactiontTime5 + " ms");
     }
     public void initialize (URL url, ResourceBundle resourceBundle)  {
         try {
@@ -93,26 +114,43 @@ public class HelloController implements Initializable {
             TransactionTableView(FXCollections.observableList(Y.ShowRecords()));
         }
         catch (Exception e) {
-            System.out.println("not working");
+            System.out.println(" ");
         }
     }
-    public void switchToStatement(javafx.event.ActionEvent event) throws IOException {
+    public void switchToStatement(ActionEvent event) throws IOException {
+
+        long startTime6 = System.currentTimeMillis();
+
         Parent root = FXMLLoader.load(getClass().getResource("../fxml_fill/StatementPage.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
 
+        long stopTime6 = System.currentTimeMillis();
+        long reactiontTime6 = stopTime6 - startTime6;
+        System.out.println("The load time of switching to Statement is " + reactiontTime6 + " ms");
+
+
+
     }
-    public void switchToMainPage(javafx.event.ActionEvent event) throws IOException {
+    public void switchToMainPage(ActionEvent event) throws IOException {
+        long startTime7 = System.currentTimeMillis();
+
         Parent root = FXMLLoader.load(getClass().getResource("../fxml_fill/MainPage.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+
+        long stopTime7 = System.currentTimeMillis();
+        long reactiontTime7 = stopTime7 - startTime7;
+        System.out.println("The load time of switching to Home Page is " + reactiontTime7 + " ms");
     }
+
         public void Buymac(ActionEvent a) {
-        try {
+            long startTime7 = System.currentTimeMillis();
+            try {
             int amount= Items.getPrice("Mackbook");
             if (x.getBalance() <amount) throw new ArithmeticException();
             else {
@@ -121,6 +159,9 @@ public class HelloController implements Initializable {
                 alert.setTitle("Congratulations");
                 alert.setContentText("Item bought successfully");
                 alert.show();
+                long stopTime7 = System.currentTimeMillis();
+                long reactiontTime7 = stopTime7 - startTime7;
+                System.out.println("The load time of Buying mac button is " + reactiontTime7 + " ms");
             }
         }
         catch (ArithmeticException | SQLException al) {
@@ -131,6 +172,8 @@ public class HelloController implements Initializable {
         }
     }
         public void Buyiphone(ActionEvent a){
+            long startTime7 = System.currentTimeMillis();
+
             try {
                 int amount= Items.getPrice("Iphone");
                 if (x.getBalance() <amount) throw new ArithmeticException();
@@ -140,6 +183,9 @@ public class HelloController implements Initializable {
                     alert.setTitle("Congratulations");
                     alert.setContentText("Item bought successfully");
                     alert.show();
+                    long stopTime7 = System.currentTimeMillis();
+                    long reactiontTime7 = stopTime7 - startTime7;
+                    System.out.println("The load time of Buying iphone button is " + reactiontTime7 + " ms");
                 }
             }
             catch (ArithmeticException | SQLException al) {
@@ -150,6 +196,7 @@ public class HelloController implements Initializable {
             }
         }
         public void BuyPS5(ActionEvent a){
+            long startTime7 = System.currentTimeMillis();
             try {
                 int amount= Items.getPrice("Ps5");
                 if (x.getBalance() <amount) throw new ArithmeticException();
@@ -159,6 +206,10 @@ public class HelloController implements Initializable {
                     alert.setTitle("Congratulations");
                     alert.setContentText("Item bought successfully");
                     alert.show();
+                    long stopTime7 = System.currentTimeMillis();
+                    long reactiontTime7 = stopTime7 - startTime7;
+                    System.out.println("The load time of Buying PS5 button is " + reactiontTime7 + " ms");
+
                 }
             }
             catch (ArithmeticException | SQLException al) {
@@ -170,7 +221,8 @@ public class HelloController implements Initializable {
 
     }
         public void BuyTv(ActionEvent a){
-        try {
+            long startTime7 = System.currentTimeMillis();
+            try {
             int amount= Items.getPrice("Apple Tv");
             if (x.getBalance() <amount) throw new ArithmeticException();
             else {
@@ -179,6 +231,9 @@ public class HelloController implements Initializable {
                 alert.setTitle("Congratulations");
                 alert.setContentText("Item bought successfully");
                 alert.show();
+                long stopTime7 = System.currentTimeMillis();
+                long reactiontTime7 = stopTime7 - startTime7;
+                System.out.println("The load time of Buying TV button is " + reactiontTime7 + " ms");
             }
         }
         catch (ArithmeticException | SQLException al) {
@@ -188,14 +243,17 @@ public class HelloController implements Initializable {
             alert.show();
         }
     }
+
         public int gRand(){
         Random rand = new Random();
         int n = rand.nextInt(1000);
         return n;
     }
         public void PayLoans(ActionEvent a){
+            long startTime8 = System.currentTimeMillis();
+
             int am=gRand();
-        try
+                try
         {if (x.getBalance() <am) throw new ArithmeticException();
         else {
             Transactions.TransferBill(x,am,"pay Loan");
@@ -203,6 +261,9 @@ public class HelloController implements Initializable {
             alert.setTitle("pay");
             alert.setContentText("please pay "+ am+"EGP");
             alert.show();
+            long stopTime8 = System.currentTimeMillis();
+            long reactiontTime8 = stopTime8 - startTime8;
+            System.out.println("The load time of Paying Loans is " + reactiontTime8 + " ms");
         }
         }
         catch (ArithmeticException | SQLException al) {
@@ -210,9 +271,14 @@ public class HelloController implements Initializable {
             alert.setTitle("insufficient fund");
             alert.setContentText("to Pay "+am+" EGP");
             alert.show();
+
+            long stopTime8 = System.currentTimeMillis();
+            long reactiontTime8 = stopTime8 - startTime8;
+            System.out.println("The load time of Paying Loans if there are insufficient fund is " + reactiontTime8 + " ms");
         }
     }
         public void PayGas(ActionEvent a){
+            long startTime9 = System.currentTimeMillis();
             int am=gRand();
             try
             {if (x.getBalance() <am) throw new ArithmeticException();
@@ -222,6 +288,9 @@ public class HelloController implements Initializable {
                 alert.setTitle("pay");
                 alert.setContentText("please pay "+ am+"EGP");
                 alert.show();
+                long stopTime9 = System.currentTimeMillis();
+                long reactiontTime9 = stopTime9 - startTime9;
+                System.out.println("The load time of Paying Gas is " + reactiontTime9 + " ms");
             }
             }
             catch (ArithmeticException | SQLException al) {
@@ -232,6 +301,7 @@ public class HelloController implements Initializable {
             }
     }
         public void PayTrans(ActionEvent a){
+            long startTime9 = System.currentTimeMillis();
             int am=gRand();
             try
             {if (x.getBalance() <am) throw new ArithmeticException();
@@ -241,6 +311,9 @@ public class HelloController implements Initializable {
                 alert.setTitle("pay");
                 alert.setContentText("please pay "+ am+"EGP");
                 alert.show();
+                long stopTime9 = System.currentTimeMillis();
+                long reactiontTime9 = stopTime9 - startTime9;
+                System.out.println("The load time of Paying Transportation is " + reactiontTime9 + " ms");
             }
             }
             catch (ArithmeticException | SQLException al) {
@@ -251,6 +324,7 @@ public class HelloController implements Initializable {
             }
     }
         public void PayWater(ActionEvent a){
+            long startTime9 = System.currentTimeMillis();
             int am=gRand();
             try
             {if (x.getBalance() <am) throw new ArithmeticException();
@@ -260,6 +334,9 @@ public class HelloController implements Initializable {
                 alert.setTitle("pay");
                 alert.setContentText("please pay "+ am+"EGP");
                 alert.show();
+                long stopTime9 = System.currentTimeMillis();
+                long reactiontTime9 = stopTime9 - startTime9;
+                System.out.println("The load time of Paying Water is " + reactiontTime9 + " ms");
             }
             }
             catch (ArithmeticException | SQLException al) {
@@ -270,7 +347,8 @@ public class HelloController implements Initializable {
             }
 }
         public void PayElectric(ActionEvent a){
-        int am=gRand();
+            long startTime9 = System.currentTimeMillis();
+            int am=gRand();
         try
         {if (x.getBalance() <am) throw new ArithmeticException();
         else {
@@ -279,6 +357,9 @@ public class HelloController implements Initializable {
             alert.setTitle("pay");
             alert.setContentText("please pay "+ am+"EGP");
             alert.show();
+            long stopTime9 = System.currentTimeMillis();
+            long reactiontTime9 = stopTime9 - startTime9;
+            System.out.println("The load time of Paying Electricity is " + reactiontTime9 + " ms");
         }
         }
         catch (ArithmeticException | SQLException al) {
@@ -288,4 +369,22 @@ public class HelloController implements Initializable {
             alert.show();
         }
     }
+        public void transferConfirm(ActionEvent a){
+            try{
+                User y =new User();
+                y.EnterCardNumber(cdN.getText());
+                int z=Integer.valueOf(amountTr.getText());
+                Transactions.Transfer(x,y,z);
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setTitle("amount transfered Successfully");
+                alert.setContentText("paid amount = "+amountTr.getText()+" EGP");
+                alert.show();
+            }
+            catch (Exception E){
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("insufficient fund");
+                alert.setContentText("to Pay "+amountTr.getText()+" EGP");
+                alert.show();
+            }
+        }
 }

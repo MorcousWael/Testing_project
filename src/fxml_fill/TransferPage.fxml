@@ -13,19 +13,19 @@
             <Font size="36.0" />
          </font>
       </Label>
-      <TextField layoutX="186.0" layoutY="184.0" promptText="14-Digits" />
+      <TextField fx:id="cdN" layoutX="186.0" layoutY="184.0" promptText="14-Digits" />
       <Label layoutX="104.0" layoutY="185.0" text="To">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
       <Label layoutX="357.0" layoutY="260.0" text="EGP" />
-      <Button fx:id="confirmButton" layoutX="238.0" layoutY="395.0" mnemonicParsing="false" text="Confirm">
+      <Button fx:id="confirmButton" layoutX="238.0" layoutY="395.0" mnemonicParsing="false" onAction="#transferConfirm" text="Confirm">
          <font>
             <Font size="24.0" />
          </font>
       </Button>
-      <TextField layoutX="188.0" layoutY="255.0" promptText="1000" />
+      <TextField fx:id="amountTr" layoutX="188.0" layoutY="255.0" promptText="1000" />
       <Label layoutX="105.0" layoutY="256.0" text="Amount">
          <font>
             <Font size="18.0" />
