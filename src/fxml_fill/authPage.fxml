@@ -11,7 +11,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane style="-fx-background-radius: 20;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.authPageController">
+<AnchorPane style="-fx-background-radius: 20;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.authPageController">
    <children>
       <AnchorPane prefHeight="616.0" prefWidth="993.0" style="-fx-background-color: #030307; -fx-background-radius: 15;">
          <children>
@@ -29,27 +29,27 @@
                   </Label>
                </children>
             </Pane>
-            <AnchorPane layoutX="22.0" layoutY="85.0" prefHeight="531.0" prefWidth="951.0" style="-fx-background-color: #131022; -fx-background-radius: 10;" stylesheets="@../css/fullpackstyling.css">
+            <AnchorPane layoutX="22.0" layoutY="85.0" prefHeight="531.0" prefWidth="973.0" style="-fx-background-color: #131022; -fx-background-radius: 10;" stylesheets="@../css/fullpackstyling.css">
                <children>
                   <Label layoutX="39.0" layoutY="34.0" text="Welcome to" textFill="WHITE">
                      <font>
                         <Font size="26.0" />
                      </font>
                   </Label>
-                  <Label layoutX="176.0" layoutY="34.0" text="Gandalf's Bank" textFill="#fff600">
+                  <Label layoutX="178.0" layoutY="34.0" text="Gandalf's Bank" textFill="#fff600">
                      <font>
                         <Font size="26.0" />
                      </font>
                   </Label>
-                  <Label layoutX="39.0" layoutY="81.0" text="The most sophisticated and efficient way of buying gold" textFill="WHITE">
+                  <Label layoutX="39.0" layoutY="81.0" text="The future of banking is already here." textFill="WHITE">
                      <font>
                         <Font size="13.0" />
                      </font>
                   </Label>
-                  <Pane layoutX="569.0" layoutY="46.0" prefHeight="297.0" prefWidth="270.0" style="-fx-background-radius: 20;" styleClass="linear-grad" stylesheets="@../css/fullpackstyling.css">
+                  <Pane layoutX="618.0" layoutY="42.0" prefHeight="297.0" prefWidth="270.0" style="-fx-background-radius: 20;" styleClass="linear-grad" stylesheets="@../css/fullpackstyling.css">
                      <children>
                         <Button layoutX="63.0" layoutY="285.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="145.0" styleClass="button4" stylesheets="@../css/fullpackstyling.css" text="Platinum" textFill="WHITE" />
-                        <ImageView fitHeight="144.0" fitWidth="173.0" layoutX="63.0" layoutY="55.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="144.0" fitWidth="173.0" layoutX="63.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../resources/ic_usr.png" />
                            </image>
@@ -57,26 +57,26 @@
                      </children>
                   </Pane>
                   <Line endX="100.0" layoutX="445.0" layoutY="54.0" startX="100.0" startY="418.0" stroke="#b9b1b1" strokeDashOffset="2.0" />
-                  <TextField fx:id="authUser" layoutX="155.0" layoutY="141.0" />
-                  <Button fx:id="authLogin" layoutX="122.0" layoutY="342.0" mnemonicParsing="false" onAction="#switchHomePage" opacity="0.7" prefHeight="54.0" prefWidth="276.0" styleClass="button2" stylesheets="@../css/fullpackstyling.css" text="Login" textAlignment="JUSTIFY" textFill="WHITE">
+                  <TextField fx:id="authUser" blendMode="SOFT_LIGHT" layoutX="155.0" layoutY="146.0" prefHeight="44.0" prefWidth="285.0" styleClass="text" stylesheets="@../css/fullpackstyling.css" />
+                  <Button fx:id="authLogin" layoutX="125.0" layoutY="346.0" mnemonicParsing="false" onAction="#switchHomePage" opacity="0.7" prefHeight="74.0" prefWidth="270.0" styleClass="button2" stylesheets="@../css/fullpackstyling.css" text="Login" textAlignment="JUSTIFY" textFill="WHITE">
                      <font>
                         <Font name="Arial" size="40.0" />
                      </font>
                   </Button>
-                  <Label layoutX="64.0" layoutY="140.0" text="username" textFill="WHITE">
+                  <Label layoutX="46.0" layoutY="156.0" text="Username" textFill="WHITE">
                      <font>
                         <Font size="18.0" />
                      </font></Label>
-                  <Label layoutX="65.0" layoutY="181.0" text="password" textFill="WHITE">
+                  <Label layoutX="48.0" layoutY="230.0" text="Password" textFill="WHITE">
                      <font>
                         <Font size="18.0" />
                      </font></Label>
-                  <Button fx:id="authSignup" layoutX="122.0" layoutY="426.0" mnemonicParsing="false" onAction="#switchSignup" opacity="0.7" prefHeight="54.0" prefWidth="276.0" styleClass="button2" stylesheets="@../css/fullpackstyling.css" text="Signup" textAlignment="JUSTIFY" textFill="WHITE">
+                  <Button fx:id="authSignup" layoutX="125.0" layoutY="436.0" mnemonicParsing="false" onAction="#switchSignup" opacity="0.7" prefHeight="74.0" prefWidth="270.0" styleClass="button2" stylesheets="@../css/fullpackstyling.css" text="Signup" textAlignment="JUSTIFY" textFill="WHITE">
                      <font>
                         <Font name="Arial" size="40.0" />
                      </font>
                   </Button>
-                  <PasswordField fx:id="authPass" layoutX="155.0" layoutY="182.0" />
+                  <PasswordField fx:id="authPass" blendMode="SOFT_LIGHT" layoutX="155.0" layoutY="219.0" prefHeight="44.0" prefWidth="285.0" />
                </children>
             </AnchorPane>
             <ImageView fitHeight="38.0" fitWidth="34.0" layoutX="91.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
